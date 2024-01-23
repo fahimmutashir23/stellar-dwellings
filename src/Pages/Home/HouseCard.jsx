@@ -1,15 +1,20 @@
 
-import BookingsModal from "../../Utils/BookingsModal/BookingsModal";
+import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const HouseCard = ({ house }) => {
+
+
   const {
     name,
     city,
     available_date,
     rent_price,
     image,
+    _id
   } = house;
+
+
   return (
     <div >
       <div className="flex max-w-2xl mx-auto h-36 overflow-hidden border-2 bg-slate-100 border-slate-400 mb-5">
@@ -35,15 +40,15 @@ const HouseCard = ({ house }) => {
               </h1>
             </div>
             <div className="flex justify-end">
-              <button
-              onClick={()=>document.getElementById('modal_1').showModal()}
+             <Link to={`/bookingsPage/${_id}`}>
+             <button
               className="bg-[#E36252] text-white rounded-sm h-9 text-base px-2 hover:bg-red-500">
                 Book now
               </button>
+             </Link>
             </div>
           </div>
         </div>
-        <BookingsModal modal_1='modal_1' info={house} />
       </div>
     </div>
   );

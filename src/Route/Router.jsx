@@ -11,6 +11,7 @@ import AddHouse from "../Pages/AddHouse/AddHouse";
 import AllHouses from "../Pages/AllHouses/AllHouses";
 import UpdateHouse from "../Utils/UpdateHouse/UpdateHouse";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import BookingPage from "../Pages/Home/BookingPage";
 
 
 const Router = createBrowserRouter([
@@ -29,6 +30,10 @@ const Router = createBrowserRouter([
             {
                 path: "/signIn",
                 element: <SignIn /> 
+            },
+            {
+                path: "/bookingsPage/:id",
+                element: <PrivetRoute><BookingPage /> </PrivetRoute>
             },
         ]
     },

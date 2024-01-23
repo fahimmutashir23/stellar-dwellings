@@ -15,6 +15,7 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState('');
 
 
+
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["allHouse"],
     queryFn: async () => {

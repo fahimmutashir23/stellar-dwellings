@@ -5,8 +5,6 @@ import Loader from "../../../Utils/Loader/Loader";
 import { useEffect } from "react";
 
 const Sidebar = () => {
-    const role = 'owner'
-    const isUser = useIsLogIn()
     const [isOwner, ownerLoading, ownerFetch] = useIsOwner()
 
     useEffect(() => {
@@ -22,7 +20,7 @@ const Sidebar = () => {
       <div className="py-4 flex items-center justify-center">
         <div className="flex flex-col items-center">
           <h2 className="text-center mt-2 text-xl font-semibold">User Name</h2>
-          <h2 className="text-center mt-1">{role === 'owner'? 'Owner' : "Renter"}</h2>
+          <h2 className="text-center mt-1">{isOwner === 'owner'? 'Owner' : "Renter"}</h2>
         </div>
       </div>
       <div>
