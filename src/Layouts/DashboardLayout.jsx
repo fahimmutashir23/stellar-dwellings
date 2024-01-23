@@ -7,7 +7,7 @@ const DashboardLayout = () => {
     <div>
         <Navbar />
       <div className="flex gap-4">
-        <div className="w-2/12 bg-gray-800 text-white p-4">
+        <div className="w-2/12 bg-gray-800 text-white py-4 h-[calc(100vh-64px)]">
           <Sidebar />
         </div>
         <div className="flex-1">
