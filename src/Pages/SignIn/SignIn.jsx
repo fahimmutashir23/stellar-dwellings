@@ -14,8 +14,8 @@ const SignIn = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const res = await axiosPublic(`/authentication?email=${email}&password=${password}`);
-    
+    const res = await axiosPublic(`/auth?email=${email}&password=${password}`);
+    console.log(res.data);
     if (res.data.message === 'success') {
       e.target.reset();
       setErrorMsg("");
@@ -27,6 +27,15 @@ const SignIn = () => {
           padding: "4px 2rem",
         },
       });
+
+      axiosPublic.post('/jwt', {email: email})
+      .then(res => {
+          if(res.data.token){
+              localStorage.setItem('access', res.data.token)
+          } else{
+              localStorage.removeItem('access')
+          }
+      })
     }
     if(res.data.message === 'failed'){
         setErrorMsg("Email and Password are incorrect.")

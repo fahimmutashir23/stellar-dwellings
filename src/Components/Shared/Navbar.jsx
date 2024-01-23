@@ -1,9 +1,13 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
+  const handleLogOut = () => {
+    localStorage.removeItem('access')
+  }
   return (
-    <nav className="bg-gray-700 border-gray-200 ">
-      <div className="flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-gray-700 border-gray-200">
+      <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto py-4">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
             src="https://flowbite.com/docs/images/logo.svg"
@@ -35,7 +39,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-              to='signIn'
+              to='/signIn'
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Sign In
@@ -47,6 +51,14 @@ const Navbar = () => {
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Sign Up
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+              onClick={handleLogOut}
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >
+                Log Out
               </NavLink>
             </li>
           </ul>

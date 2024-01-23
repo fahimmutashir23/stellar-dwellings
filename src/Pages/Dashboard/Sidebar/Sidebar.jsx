@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
+import useIsLogIn from "../../../Hooks/useIsLogIn";
 
 const Sidebar = () => {
     const role = 'owner'
+    const isUser = useIsLogIn()
+    console.log(isUser);
 
   return (
     <div>
@@ -17,6 +20,11 @@ const Sidebar = () => {
           <li className="bg-gray-700 ">
             <NavLink to='/dashboard/allBookings' className="p-4 block hover:translate-x-2 transition-all duration-300">
               All Bookings
+            </NavLink>
+          </li>
+          <li className="bg-gray-700 ">
+            <NavLink to='/dashboard/allHouses' className="p-4 block hover:translate-x-2 transition-all duration-300">
+              All Houses
             </NavLink>
           </li>
           <li className="bg-gray-700">

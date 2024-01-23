@@ -43,14 +43,14 @@ const SignUp = () => {
             style: {backgroundColor: "#00c04b", color: 'white', borderRadius: '4px', padding: '4px 2rem'}
         })
 
-        axiosPublic.post('/jwt', {email: email})
-        .then(res => {
-            if(res.data.token){
-                localStorage.setItem('access', res.data.token)
-            } else{
-                localStorage.removeItem('access')
-            }
-        })
+        // axiosPublic.post('/jwt', {email: email})
+        // .then(res => {
+        //     if(res.data.token){
+        //         localStorage.setItem('access', res.data.token)
+        //     } else{
+        //         localStorage.removeItem('access')
+        //     }
+        // })
     }
     if(res.data.message){
       setErrorMsg('Email Already in used, Please try another email')

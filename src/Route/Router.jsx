@@ -8,6 +8,8 @@ import MainContent from "../Pages/Dashboard/MainContent/MainContent";
 import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
 import AllBookings from "../Pages/AllBookings/AllBookings";
 import AddHouse from "../Pages/AddHouse/AddHouse";
+import AllHouses from "../Pages/AllHouses/AllHouses";
+import UpdateHouse from "../Utils/UpdateHouse/UpdateHouse";
 
 
 const Router = createBrowserRouter([
@@ -48,6 +50,14 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/addHouse',
                 element: <AddHouse />
+            },
+            {
+                path: '/dashboard/allHouses',
+                element: <AllHouses />
+            },
+            {
+                path: '/dashboard/updateHouse/:id',
+                element: <UpdateHouse />
             },
         ]
     }

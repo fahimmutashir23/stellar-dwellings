@@ -2,39 +2,41 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import PageTitle from "../../Utils/PageTitle/PageTitle";
 import Loader from "../../Utils/Loader/Loader";
-import BookingsTable from "./BookingsTable";
+import HouseTable from "./HouseTable";
 
-const AllBookings = () => {
-  const axiosSecure = useAxiosSecure()
+const AllHouses = () => {
+  const axiosSecure = useAxiosSecure();
 
-  const {data, isLoading, refetch} = useQuery({
-    queryKey: ['bookings'],
-    queryFn: async() => {
-      const res = await axiosSecure('/bookings')
-      return res.data
-    }
-  })
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ["AllHousesForAdmin"],
+    queryFn: async () => {
+      const res = await axiosSecure("/houses");
+      return res.data;
+    },
+  });
 
-  if(isLoading){
-    return <Loader />
+  if (isLoading) {
+    return <Loader />;
   }
-
   return (
     <div>
-        <PageTitle title='All Bookings' />
+      <PageTitle title="All Houses" />
       <div>
-        <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div>
+          <table className="w-full text-sm text-left text-gray-200">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Email
+                  Price
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  House Name
+                  City
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Edit
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Delete
@@ -42,9 +44,13 @@ const AllBookings = () => {
               </tr>
             </thead>
             <tbody>
-             {
-              data.map(booking => <BookingsTable key={booking._id} booking={booking} refetch={refetch} />)
-             }
+              {data.map((house) => (
+                <HouseTable
+                  key={house._id}
+                  house={house}
+                  refetch={refetch}
+                />
+              ))}
             </tbody>
           </table>
         </div>
@@ -53,4 +59,4 @@ const AllBookings = () => {
   );
 };
 
-export default AllBookings;
+export default AllHouses;

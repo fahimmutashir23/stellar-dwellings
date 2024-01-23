@@ -1,12 +1,16 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import PageTitle from "../../Utils/PageTitle/PageTitle";
 import toast from "react-hot-toast";
+import PageTitle from "../PageTitle/PageTitle";
+import { useParams } from "react-router-dom";
 
-const AddHouse = () => {
+const UpdateHouse = () => {
+  const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const [bedroom, setBedroom] = useState(0);
   const [bathroom, setBathroom] = useState(0);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +29,7 @@ const AddHouse = () => {
 
     const houseInfo = {
       name,
-      ownerEmail: 'taslimit23@gmail.com',
+      ownerEmail: "taslimit23@gmail.com",
       city,
       address,
       bathroom: bathrooms,
@@ -35,13 +39,14 @@ const AddHouse = () => {
       rent_price: prices,
       phone_number: phone,
       description,
-      image
+      image,
     };
 
-    const res = await axiosSecure.post("/houses", houseInfo);
-    if (res.data.insertedId) {
+    const res = await axiosSecure.put(`/houses/${id}`, houseInfo);
+
+    if (res.data.modifiedCount > 0) {
       e.target.reset();
-      toast.success("Room added successfully", {
+      toast.success("Room Update successfully", {
         style: {
           backgroundColor: "#00c04b",
           color: "white",
@@ -54,17 +59,20 @@ const AddHouse = () => {
 
   return (
     <div>
-      <PageTitle title="Add House" />
       <div>
+        <div>
+          <PageTitle title="Update House" />
+        </div>
         <form
           onSubmit={handleSubmit}
-          className="w-2/3 mx-auto border-4 p-2 bg-white shadow-lg z-30 space-y-8"
+          className=" mx-auto border-4 p-2 bg-white shadow-lg text-black space-y-8"
         >
           <div className="grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
                 name="name"
+                // defaultValue={name}
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
@@ -77,6 +85,7 @@ const AddHouse = () => {
               <input
                 type="text"
                 name="address"
+                // defaultValue={address}
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
@@ -91,6 +100,7 @@ const AddHouse = () => {
               <input
                 type="text"
                 name="city"
+                // defaultValue={city}
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
@@ -103,6 +113,7 @@ const AddHouse = () => {
               <input
                 type="text"
                 name="room_size"
+                // defaultValue={room_size}
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
@@ -118,6 +129,7 @@ const AddHouse = () => {
                 type="tel"
                 // pattern="[+880]"
                 name="phone"
+                // defaultValue={phone_number}
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required
@@ -134,7 +146,7 @@ const AddHouse = () => {
                 placeholder=" "
                 required
               />
-               <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 House Image
               </label>
             </div>
@@ -183,7 +195,13 @@ const AddHouse = () => {
             <div className="">
               <span>Rent Price</span>
               <div className="py-2 rounded-md flex items-center gap-5 border-[2px] mt-2">
-                <input type="number" name="price" id="" className="w-32 focus:ring-0 focus:outline-none px-2" />
+                <input
+                  type="number"
+                  name="price"
+                  //   defaultValue={rent_price}
+                  id=""
+                  className="w-32 focus:ring-0 focus:outline-none px-2"
+                />
               </div>
             </div>
             <div>
@@ -209,7 +227,7 @@ const AddHouse = () => {
               type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Add House
+              Update House
             </button>
           </div>
         </form>
@@ -218,4 +236,4 @@ const AddHouse = () => {
   );
 };
 
-export default AddHouse;
+export default UpdateHouse;
