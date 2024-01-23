@@ -5,6 +5,9 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import SignUp from "../Pages/SignUp/SignUp";
 import SignIn from "../Pages/SignIn/SignIn";
 import MainContent from "../Pages/Dashboard/MainContent/MainContent";
+import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
+import AllBookings from "../Pages/AllBookings/AllBookings";
+import AddHouse from "../Pages/AddHouse/AddHouse";
 
 
 const Router = createBrowserRouter([
@@ -33,7 +36,19 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MainContent />
-            }
+            },
+            {
+                path: '/dashboard/myBookings',
+                element: <MyBookings />
+            },
+            {
+                path: '/dashboard/allBookings',
+                element: <AllBookings />
+            },
+            {
+                path: '/dashboard/addHouse',
+                element: <AddHouse />
+            },
         ]
     }
 ])

@@ -15,12 +15,12 @@ const Sidebar = () => {
         {role === 'owner' ? 
         <ul className="space-y-1">
           <li className="bg-gray-700 ">
-            <NavLink to='allBookings' className="p-4 block hover:translate-x-2 transition-all duration-300">
+            <NavLink to='/dashboard/allBookings' className="p-4 block hover:translate-x-2 transition-all duration-300">
               All Bookings
             </NavLink>
           </li>
           <li className="bg-gray-700">
-            <NavLink to='/addHouse' className="p-4 block hover:translate-x-2 transition-all duration-300">
+            <NavLink to='/dashboard/addHouse' className="p-4 block hover:translate-x-2 transition-all duration-300">
               Add New House
             </NavLink>
           </li>
@@ -28,7 +28,7 @@ const Sidebar = () => {
         :
         <ul className="space-y-1">
           <li className="bg-gray-700 ">
-            <NavLink to='/myBookings' className="p-4 block hover:translate-x-2 transition-all duration-300">
+            <NavLink to='/dashboard/myBookings' className="p-4 block hover:translate-x-2 transition-all duration-300">
               My Bookings
             </NavLink>
           </li>
