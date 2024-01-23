@@ -10,6 +10,7 @@ import AllBookings from "../Pages/AllBookings/AllBookings";
 import AddHouse from "../Pages/AddHouse/AddHouse";
 import AllHouses from "../Pages/AllHouses/AllHouses";
 import UpdateHouse from "../Utils/UpdateHouse/UpdateHouse";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 
 const Router = createBrowserRouter([
@@ -33,7 +34,7 @@ const Router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout />,
+        element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
         children: [
             {
                 path: '/dashboard',

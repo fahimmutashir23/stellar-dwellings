@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
+import useIsLogIn from "../../Hooks/useIsLogIn";
 
 const Navbar = () => {
+const user = useIsLogIn()
 
   const handleLogOut = () => {
     localStorage.removeItem('access')
+    localStorage.removeItem('user')
   }
   return (
     <nav className="bg-gray-700 border-gray-200">
@@ -20,6 +23,9 @@ const Navbar = () => {
         </a>
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+            {user? <li className="text-white">
+                {user.name}
+            </li> : ''}
             <li>
               <NavLink
                 to='/'

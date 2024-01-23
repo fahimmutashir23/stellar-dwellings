@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import bg from "../../assets/Background/signUp3.jpg";
-import { useState } from "react";
-import toast from "react-hot-toast";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useContext} from "react";
+import { AuthContext } from "../../Provider/Provider";
 
 const SignIn = () => {
-  const [errorMsg, setErrorMsg] = useState("");
-  const axiosPublic = useAxiosPublic();
+const navigate = useNavigate()
+  const {login, errorMsg} = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,32 +13,11 @@ const SignIn = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const res = await axiosPublic(`/auth?email=${email}&password=${password}`);
-    console.log(res.data);
-    if (res.data.message === 'success') {
-      e.target.reset();
-      setErrorMsg("");
-      toast.success(`Login Successfully`, {
-        style: {
-          backgroundColor: "#00c04b",
-          color: "white",
-          borderRadius: "4px",
-          padding: "4px 2rem",
-        },
-      });
-
-      axiosPublic.post('/jwt', {email: email})
-      .then(res => {
-          if(res.data.token){
-              localStorage.setItem('access', res.data.token)
-          } else{
-              localStorage.removeItem('access')
-          }
-      })
-    }
-    if(res.data.message === 'failed'){
-        setErrorMsg("Email and Password are incorrect.")
-    }
+    login(email, password)
+    .then(() => {
+      navigate('/dashboard')
+      e.target.reset()
+    })
   };
 
   return (

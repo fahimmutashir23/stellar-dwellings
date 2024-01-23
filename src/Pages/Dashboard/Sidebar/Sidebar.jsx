@@ -1,10 +1,21 @@
 import { NavLink } from "react-router-dom";
 import useIsLogIn from "../../../Hooks/useIsLogIn";
+import useIsOwner from "../../../Hooks/useIsOwner";
+import Loader from "../../../Utils/Loader/Loader";
+import { useEffect } from "react";
 
 const Sidebar = () => {
     const role = 'owner'
     const isUser = useIsLogIn()
-    console.log(isUser);
+    const [isOwner, ownerLoading, ownerFetch] = useIsOwner()
+
+    useEffect(() => {
+      ownerFetch()
+    }, [ownerFetch])
+
+    if(ownerLoading){
+      return <Loader/>
+    }
 
   return (
     <div>
@@ -15,7 +26,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div>
-        {role === 'owner' ? 
+        {isOwner === 'owner' ? 
         <ul className="space-y-1">
           <li className="bg-gray-700 ">
             <NavLink to='/dashboard/allBookings' className="p-4 block hover:translate-x-2 transition-all duration-300">
