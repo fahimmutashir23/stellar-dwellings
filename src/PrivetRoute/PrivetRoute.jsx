@@ -4,11 +4,10 @@ import useIsLogIn from "../Hooks/useIsLogIn";
 
 
 const PrivetRoute = ({children}) => {
-    const isUser = useIsLogIn()
-    const user = isUser?.email
+    const user = useIsLogIn()
 
 
-    if(user){
+    if(user?.email){
         return children
     }
     else{

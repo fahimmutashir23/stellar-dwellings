@@ -2,14 +2,11 @@ import { NavLink } from "react-router-dom";
 import useIsLogIn from "../../../Hooks/useIsLogIn";
 import useIsOwner from "../../../Hooks/useIsOwner";
 import Loader from "../../../Utils/Loader/Loader";
-import { useEffect } from "react";
 
 const Sidebar = () => {
-    const [isOwner, ownerLoading, ownerFetch] = useIsOwner()
+  const user = useIsLogIn()
+    const [isOwner, ownerLoading] = useIsOwner()
 
-    useEffect(() => {
-      ownerFetch()
-    }, [ownerFetch])
 
     if(ownerLoading){
       return <Loader/>
@@ -19,12 +16,12 @@ const Sidebar = () => {
     <div>
       <div className="py-4 flex items-center justify-center">
         <div className="flex flex-col items-center">
-          <h2 className="text-center mt-2 text-xl font-semibold">User Name</h2>
-          <h2 className="text-center mt-1">{isOwner === 'owner'? 'Owner' : "Renter"}</h2>
+          <h2 className="text-center mt-2 text-xl font-semibold">{isOwner?.firstName + " " + isOwner?.lastName}</h2>
+          <h2 className="text-center mt-1">{isOwner?.role === 'owner'? 'Owner' : "Renter"}</h2>
         </div>
       </div>
       <div>
-        {isOwner === 'owner' ? 
+        {user?.email && isOwner?.role === 'owner' ? 
         <ul className="space-y-1">
           <li className="bg-gray-700 ">
             <NavLink to='/dashboard/allBookings' className="p-4 block hover:translate-x-2 transition-all duration-300">

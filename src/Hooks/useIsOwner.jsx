@@ -11,7 +11,7 @@ const useIsOwner = () => {
         queryKey: ['isOwner'],
         queryFn: async() => {
             const res = await axiosPublic(`/users?email=${user?.email}`)
-            return res.data[0].role
+            return res.data[0]
         }
     })
     return [isOwner, ownerLoading, ownerFetch]

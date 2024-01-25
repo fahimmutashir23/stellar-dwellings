@@ -10,7 +10,7 @@ const useIsLogIn = () => {
     if(isLogin){
         return user
     }
-    return {user:false}
+    // return {user:false}
 };
 
 export default useIsLogIn;
