@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "react-phone-input-2/lib/style.css";
 import { RouterProvider } from "react-router-dom";
 import Router from "./Route/Router.jsx";
 import { Toaster } from "react-hot-toast";

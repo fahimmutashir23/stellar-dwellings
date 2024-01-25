@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+
 
 const SignUp = () => {
   const [errorMsg, setErrorMsg] = useState("");
-  const [phoneErr, setPhoneErr] = useState(false);
+  const [phoneErr, setPhoneErr] = useState('');
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const [phone, setPhone] = useState("");
@@ -17,11 +17,12 @@ const SignUp = () => {
     const checkCountry = number.slice(0, 3);
 
     if (checkCountry !== "880") {
-      setPhoneErr(true);
+      setPhoneErr('You can select Bangladesh');
     } else if (number.length !== 13) {
-      setPhoneErr(true);
+      setPhoneErr('')
+      setPhoneErr('Enter valid number');
     } else {
-      setPhoneErr(false);
+      setPhoneErr('');
       return number;
     }
   };
@@ -156,7 +157,7 @@ const SignUp = () => {
             }}
           />
           <p className="text-red-600 text-xs">
-            {phoneErr && "This number is not in BD"}
+            {phoneErr}
           </p>
         </div>
         <div className="relative z-0 w-full mb-5 group">

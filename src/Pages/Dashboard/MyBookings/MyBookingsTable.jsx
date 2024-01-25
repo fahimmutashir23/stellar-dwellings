@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 
-const BookingsTable = ({ booking, refetch }) => {
-const axiosSecure = useAxiosSecure();
+const MyBookingsTable = ({booking, refetch}) => {
+    const axiosSecure = useAxiosSecure();
 
   const handleDelete = (id) => {
     console.log('click');
@@ -33,9 +33,8 @@ const axiosSecure = useAxiosSecure();
         }
       });
   };
-  return (
-    <>
-      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+    return (
+        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         <th
           scope="row"
           className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -53,8 +52,7 @@ const axiosSecure = useAxiosSecure();
           </button>
         </td>
       </tr>
-    </>
-  );
+    );
 };
 
-export default BookingsTable;
+export default MyBookingsTable;
