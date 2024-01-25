@@ -3,12 +3,32 @@ import bg from "../../assets/Background/signUp3.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const SignUp = () => {
   const [errorMsg, setErrorMsg] = useState("");
+  const [phoneErr, setPhoneErr] = useState(false);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
+  const [phone, setPhone] = useState("");
+
+  const checkValid = (number) => {
+    const checkCountry = number.slice(0, 3);
+
+    if (checkCountry !== "880") {
+      setPhoneErr(true);
+    } else if (number.length !== 13) {
+      setPhoneErr(true);
+    } else {
+      setPhoneErr(false);
+      return number;
+    }
+  };
+
+  const handlePhone = (e) => {
+    setPhone(checkValid(e));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +38,6 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     const repeatPassword = form.repeatPassword.value;
-    const phone = form.phone.value;
     const role = form.role.value;
 
     if(password != repeatPassword){
@@ -126,24 +145,28 @@ const SignUp = () => {
             Confirm password
           </label>
         </div>
-        <div className="relative z-0 w-full mb-5 group">
-          <input
-            type="tel"
-            // pattern="[+880]"
-            name="phone"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
+        <div className="relative z-10 w-full mb-5 group">
+          <PhoneInput
+            country={"bd"}
+            value={phone}
+            onChange={handlePhone}
+            inputProps={{
+              name: "phone",
+              required: true,
+            }}
           />
-          <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-            Phone number (123-456-7890)
-          </label>
+          <p className="text-red-600 text-xs">
+            {phoneErr && "This number is not in BD"}
+          </p>
         </div>
         <div className="relative z-0 w-full mb-5 group">
-         <select name="role" className="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+          <select
+            name="role"
+            className="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          >
             <option value="owner">Owner</option>
             <option value="renter">Renter</option>
-         </select>
+          </select>
           <label className="peer-focus:font-medium absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0">
             Your Role
           </label>
@@ -151,7 +174,7 @@ const SignUp = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 btn ${!phone && 'btn-disabled'}`}
           >
             Sign Up
           </button>

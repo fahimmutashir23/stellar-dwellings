@@ -9,4 +9,4 @@ const text2 = "hello"
 const text3 = "A man, a plan, a canal: Panama"
 
 
-console.log(isPalindrome(text1))
+console.log(isPalindrome(text1))   
