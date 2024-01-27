@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Swal from "sweetalert2";
 import useIsLogIn from "../Hooks/useIsLogIn";
+import { Navigate } from "react-router-dom";
 
 
 const PrivetRoute = ({children}) => {
@@ -17,7 +18,7 @@ const PrivetRoute = ({children}) => {
               text: "Please Login first to use this service",
               icon: "warning",
               confirmButtonText: "Cool",
-            })
+            }) && <Navigate to='/signIn'></Navigate>
           );
     }
 };
