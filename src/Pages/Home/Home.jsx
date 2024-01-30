@@ -5,23 +5,23 @@ import Loader from "../../Utils/Loader/Loader";
 import HouseCard from "./HouseCard";
 import { Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
-import bgVdo from "../../assets/Background/homeVdo.mp4"
-
+import bgVdo from "../../assets/Background/homeVdo.mp4";
+import { TypeAnimation } from "react-type-animation";
 
 const Home = () => {
   const axiosPublic = useAxiosPublic();
   const [totalData, setTotalData] = useState(0);
   const [page, setPage] = useState(0);
-  const limit = 10
+  const limit = 10;
   const [value, setValue] = useState(0);
-  const [searchValue, setSearchValue] = useState('');
-
-
+  const [searchValue, setSearchValue] = useState("");
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["allHouse"],
     queryFn: async () => {
-      const res = await axiosPublic(`/houses?page=${page}&limit=${limit}&price=${value}&search=${searchValue}`);
+      const res = await axiosPublic(
+        `/houses?page=${page}&limit=${limit}&price=${value}&search=${searchValue}`
+      );
       return res.data;
     },
   });
@@ -35,23 +35,23 @@ const Home = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const searchValue= e.target.search.value;
-    setSearchValue(searchValue)
+    const searchValue = e.target.search.value;
+    setSearchValue(searchValue);
   };
 
   const handleChange = (event, value) => {
-    setPage(value-1);
+    setPage(value - 1);
     refetch();
   };
 
   const handleSetPrice = (value) => {
-      setValue(value)
-      setSearchValue('')
-  }
+    setValue(value);
+    setSearchValue("");
+  };
 
   useEffect(() => {
-    refetch()
-  }, [value, searchValue])
+    refetch();
+  }, [value, searchValue]);
 
   if (isLoading) {
     return <Loader />;
@@ -59,15 +59,40 @@ const Home = () => {
   return (
     <div>
       <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative">
-      <video src={bgVdo} autoPlay loop muted className="h-full w-full object-cover" />
-          <div className="hero-overlay bg-gray-900 bg-opacity-60"></div>
-          <div
+        <video
+          src={bgVdo}
+          autoPlay
+          loop
+          muted
+          className="h-full w-full object-cover"
+        />
+        <div className="hero-overlay bg-gray-900 bg-opacity-60"></div>
+        <div
           data-aos-easing="ease-in-sine"
           data-aos-duration="1000"
           data-aos="fade-right"
-          className="absolute left-10 bottom-44">
-            <h1 className="text-5xl font-semibold">We will try to find you <br /> <span className="text-blue-300">Dream</span> place</h1>
-          </div>
+          className="absolute left-10 bottom-44"
+        >
+          <h1 className="text-5xl font-medium">
+            We will try to find your <br />
+            <TypeAnimation
+            sequence={[
+              "Dream",
+              2000,
+              "Wonder",
+              2000,
+              "Suitable",
+              2000,
+              "Haven",
+              2000,
+            ]}
+            speed={20}
+            style={{ display: "inline-block", color: "#00A9FF" }}
+            repeat={Infinity}
+          />
+             place
+          </h1>
+        </div>
       </div>
       <PageTitle title="All House" />
       <div className="flex justify-between items-center">
