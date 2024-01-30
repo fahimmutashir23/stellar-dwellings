@@ -17,8 +17,8 @@ const HouseCard = ({ house }) => {
 
   return (
     <div >
-      <div className="flex max-w-2xl mx-auto h-36 overflow-hidden border-2 bg-slate-100 border-slate-400 mb-5 hover:shadow-lg hover:shadow-gray-400 transition-all duration-500 rounded-tl-xl rounded-br-xl group">
-        <div className="overflow-hidden w-72 h-36 ">
+      <div className="flex max-w-2xl mx-auto h-44 overflow-hidden border-2 bg-slate-100 border-slate-400 mb-5 hover:shadow-lg hover:shadow-gray-400 transition-all duration-500 rounded-tl-xl rounded-br-xl group">
+        <div className="overflow-hidden w-72 h-44 ">
           <img className="group-hover:scale-105 transition-all duration-500 h-full w-full object-fill" src={image} />
         </div>
         <div className="flex justify-between flex-1 mb-2 p-2">

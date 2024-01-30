@@ -66,7 +66,7 @@ const Home = () => {
   }
   return (
     <div>
-      <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative">
+      <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative mb-14">
         <video
           src={bgVdo}
           autoPlay
@@ -103,7 +103,7 @@ const Home = () => {
         </div>
       </div>
       <PageTitle title="Featured House" />
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mt-8">
         <div className="flex-1">
           <form onSubmit={handleSearch}>
             <div className="w-2/3">
