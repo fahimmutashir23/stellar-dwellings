@@ -35,9 +35,11 @@ const Home = () => {
   const totalPage = Math.ceil(parseInt(totalData) / limit);
   const paginateBtn = [...Array(totalPage).keys()];
 
+ useEffect(() => {
   axiosPublic("/totalHouse").then((res) => {
     setTotalData(res.data.count);
   });
+ }, [axiosPublic])
 
   const handleSearch = (e) => {
     e.preventDefault();
