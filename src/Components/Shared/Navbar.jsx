@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import useIsLogIn from "../../Hooks/useIsLogIn";
-import logo from "../../assets/Logo/Logo2.png"
+import logoImage from '../../assets/Logo/Logo2.png';
+
 
 const Navbar = () => {
 const user = useIsLogIn()
@@ -17,7 +18,7 @@ const navigate = useNavigate();
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto py-4">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
-            src={logo}
+            src={logoImage}
             className="w-16"
             alt="Flowbite Logo"
           />

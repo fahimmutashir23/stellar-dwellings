@@ -1,16 +1,13 @@
-import { ThreeCircles } from "react-loader-spinner";
-
+import Lottie from "lottie-react";
+import loadIcon from "../../assets/Animations/loader.json";
 const Loader = () => {
   return (
     <div className="flex justify-center mt-4">
-      <ThreeCircles
-        visible={true}
-        height="50"
-        width="50"
-        color="#4fa94d"
-        ariaLabel="three-circles-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
+      <Lottie
+        animationData={loadIcon}
+        loop={true}
+        autoplay={true}
+        style={{ height: "150px", width: "150px" }}
       />
     </div>
   );

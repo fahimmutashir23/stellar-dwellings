@@ -5,6 +5,8 @@ import Loader from "../../Utils/Loader/Loader";
 import HouseCard from "./HouseCard";
 import { Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
+import bgVdo from "../../assets/Background/homeVdo.mp4"
+
 
 const Home = () => {
   const axiosPublic = useAxiosPublic();
@@ -56,6 +58,17 @@ const Home = () => {
   }
   return (
     <div>
+      <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative">
+      <video src={bgVdo} autoPlay loop muted className="h-full w-full object-cover" />
+          <div className="hero-overlay bg-gray-900 bg-opacity-60"></div>
+          <div
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="1000"
+          data-aos="fade-right"
+          className="absolute left-10 bottom-44">
+            <h1 className="text-5xl font-semibold">We will try to find you <br /> <span className="text-blue-300">Dream</span> place</h1>
+          </div>
+      </div>
       <PageTitle title="All House" />
       <div className="flex justify-between items-center">
         <div className="flex-1">

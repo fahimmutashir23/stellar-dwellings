@@ -12,12 +12,14 @@ import AllHouses from "../Pages/AllHouses/AllHouses";
 import UpdateHouse from "../Utils/UpdateHouse/UpdateHouse";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import BookingPage from "../Pages/Home/BookingPage";
+import ErrorPage from "../Utils/ErrorPage/ErrorPage";
 
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children : [
             {
                 path: "/",
