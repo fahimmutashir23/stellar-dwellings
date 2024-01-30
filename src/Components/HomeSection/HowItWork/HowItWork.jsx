@@ -5,6 +5,8 @@ import deal from "../../../assets/Lottie/dealLottie.json";
 import arrow from "../../../assets/Lottie/arrowLottie.json";
 import Lottie from "lottie-react";
 
+
+
 const HowItWork = () => {
   return (
     <div>

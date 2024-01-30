@@ -11,6 +11,9 @@ const queryClient = new QueryClient();
 import AOS from "aos";
 import "aos/dist/aos.css";
 AOS.init();
+import "swiper/css";
+import "swiper/css/pagination";
+import '@smastrom/react-rating/style.css'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -19,7 +19,7 @@ const PropertyBroker = () => {
         return <Loader />
     }
     return (
-        <div>
+        <div className="mt-14">
             <PageTitle title='Property Broker' />      
             <div className="flex gap-4 justify-evenly">
                 {

@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import logoImage from "../../assets/Logo/Logo2.png";
+import bgWave from "../../assets/Background/wave.svg"
 
 const Footer = () => {
   return (
-    <div className="bg-gray-700 min-h-40 w-full flex justify-evenly py-10">
+    <div
+    style={{backgroundImage: `url(${bgWave})`}}
+    className="bg-gray-700 min-h-40 w-full flex justify-evenly py-10 mt-10 bg-cover bg-center">
       <section>
         <div className="flex gap-2">
           <img src={logoImage} alt="" className="w-20" />
