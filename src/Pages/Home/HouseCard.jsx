@@ -42,7 +42,7 @@ const HouseCard = ({ house }) => {
             <div className="flex justify-end">
              <Link to={`/bookingsPage/${_id}`}>
              <button
-              className="bg-[#E36252] text-white rounded-sm h-7 text-sm px-2 hover:bg-red-600 hover:rounded-2xl transition-all duration-300">
+              className="bg-violet-500 text-white rounded-sm h-7 text-sm px-2 hover:bg-gray-500 hover:rounded-2xl transition-all duration-300">
                 Book now
               </button>
              </Link>

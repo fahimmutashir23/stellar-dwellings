@@ -7,12 +7,18 @@ import { Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
 import bgVdo from "../../assets/Background/homeVdo.mp4";
 import { TypeAnimation } from "react-type-animation";
+import HowItWork from "../../Components/HomeSection/HowItWork/HowItWork";
+import WhyChooseUs from "../../Components/HomeSection/WhyChooseUs/WhyChooseUs";
+import PropertyBroker from "../../Components/HomeSection/PropertyBroker/PropertyBroker";
+import ClientSays from "../../Components/HomeSection/ClientSays/ClientSays";
+import Contact from "../../Components/HomeSection/Contact/Contact";
+import Award from "../../Components/HomeSection/Award/Award";
 
 const Home = () => {
   const axiosPublic = useAxiosPublic();
   const [totalData, setTotalData] = useState(0);
   const [page, setPage] = useState(0);
-  const limit = 10;
+  const limit = 4;
   const [value, setValue] = useState(0);
   const [searchValue, setSearchValue] = useState("");
 
@@ -26,7 +32,7 @@ const Home = () => {
     },
   });
 
-  const totalPage = Math.ceil(parseInt(totalData) / 10);
+  const totalPage = Math.ceil(parseInt(totalData) / limit);
   const paginateBtn = [...Array(totalPage).keys()];
 
   axiosPublic("/totalHouse").then((res) => {
@@ -94,7 +100,7 @@ const Home = () => {
           </h1>
         </div>
       </div>
-      <PageTitle title="All House" />
+      <PageTitle title="Featured House" />
       <div className="flex justify-between items-center">
         <div className="flex-1">
           <form onSubmit={handleSearch}>
@@ -171,6 +177,12 @@ const Home = () => {
           onChange={handleChange}
         />
       </div>
+      <HowItWork />
+      <Award />
+      <WhyChooseUs />
+      <PropertyBroker />
+      <ClientSays />
+      <Contact />
     </div>
   );
 };

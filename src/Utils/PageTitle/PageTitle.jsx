@@ -12,8 +12,8 @@ const PageTitle = ({title}) => {
       <div>
         <h1 className="text-3xl font-bold border-b-4 border-r-4 border-black pr-2 uppercase">
           {blackText.map(text => (
-            <span key={text}> {text} </span>
-          ))} <span className="text-green-700 ">{greenText}</span>
+            <span className="text-gray-600" key={text}> {text} </span>
+          ))} <span className="text-violet-600 ">{greenText}</span>
         </h1>
       </div>
     </div>
