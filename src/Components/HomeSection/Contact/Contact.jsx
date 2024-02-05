@@ -1,23 +1,27 @@
 import Lottie from "lottie-react";
 import PageTitle from "../../../Utils/PageTitle/PageTitle";
 import contactLottie from "../../../assets/Lottie/contactLottie.json";
-import pattern from "../../../assets/Background/subtle_dots.png"
+import pattern from "../../../assets/Background/subtle_dots.png";
+import { AwesomeButton } from "react-awesome-button";
+// import { BeakerIcon, TrashIcon } from "@primer/octicons-react";
+import "react-awesome-button/dist/styles.css";
 
 const Contact = () => {
   return (
     <div className="mt-14">
       <PageTitle title="Contact Us" />
       <div
-      style={{backgroundImage: `url(${pattern})`}}
-      className="flex gap-4 items-center">
+        style={{ backgroundImage: `url(${pattern})` }}
+        className="flex gap-4 items-center"
+      >
         <div className="flex-1">
           <Lottie animationData={contactLottie} loop={true} autoplay={true} />
         </div>
         <div className="flex-1">
-            <h1 className="text-center mb-10 text-4xl font-semibold text-violet-400">
-              {"let's Talk"}
-              <p className="h-1.5 w-16 bg-gray-600 rounded-full mx-auto mt-2"></p>
-              </h1>
+          <h1 className="text-center mb-10 text-4xl font-semibold text-violet-400">
+            {"let's Talk"}
+            <p className="h-1.5 w-16 bg-gray-600 rounded-full mx-auto mt-2"></p>
+          </h1>
           <form className="max-w-sm mx-auto">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Your Name
@@ -77,6 +81,11 @@ const Contact = () => {
                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-0 focus:border-none"
                 placeholder="Leave a comment..."
               ></textarea>
+            </div>
+            <div className="mt-5">
+              <AwesomeButton type="secondary" className="w-full">
+                Submit
+              </AwesomeButton>
             </div>
           </form>
         </div>

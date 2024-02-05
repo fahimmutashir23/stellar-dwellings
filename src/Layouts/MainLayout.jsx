@@ -5,15 +5,15 @@ import Footer from "../Components/Shared/Footer";
 
 const MainLayout = () => {
   return (
-    <div
-    // style={{backgroundImage: `url(${bg})`}}
-    className="bg-cover bg-center bg-fixed">
-      <Navbar />
-        <div className="max-w-7xl mx-auto">
-          <Outlet />
-      </div>
-      <Footer />
-    </div>
+     <div
+     // style={{backgroundImage: `url(${bg})`}}
+     className="bg-cover bg-center bg-fixed">
+       <Navbar />
+         <div className="max-w-7xl mx-auto">
+           <Outlet />
+       </div>
+       <Footer />
+     </div>
   );
 };
 
