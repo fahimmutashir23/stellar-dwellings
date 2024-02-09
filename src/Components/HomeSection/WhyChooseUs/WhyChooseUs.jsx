@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
     <div className="mt-14">
       <PageTitle title="Why Choose Us" />
       <div className="grid grid-cols-3 gap-5 mt-10">
-        {content?.map((item, idx) => (
+        {content?.map((item, idx) => ( 
           <div
             key={idx}
             className="rounded-2xl border-4 border-gray-200 p-3 bg-white flex flex-col justify-center items-center gap-3 group hover:shadow-xl transition-all duration-500 hover:bg-violet-400 hover:text-white hover:scale-110"

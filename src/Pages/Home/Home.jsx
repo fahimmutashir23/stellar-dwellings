@@ -13,7 +13,6 @@ import PropertyBroker from "../../Components/HomeSection/PropertyBroker/Property
 import ClientSays from "../../Components/HomeSection/ClientSays/ClientSays";
 import Contact from "../../Components/HomeSection/Contact/Contact";
 import Award from "../../Components/HomeSection/Award/Award";
-import { Scrollbar } from "smooth-scrollbar-react";
 
 const Home = () => {
   const axiosPublic = useAxiosPublic();
@@ -22,7 +21,6 @@ const Home = () => {
   const limit = 4;
   const [value, setValue] = useState(0);
   const [searchValue, setSearchValue] = useState("");
-  
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["allHouse"],
@@ -68,7 +66,8 @@ const Home = () => {
   }
   return (
     <div>
-        <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative mb-14">
+      <div className="relative">
+        <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative mb-24">
           <video
             src={bgVdo}
             autoPlay
@@ -104,89 +103,93 @@ const Home = () => {
             </h1>
           </div>
         </div>
-        <PageTitle title="Featured House" />
-        <div className="flex justify-between items-center mt-8">
-          <div className="flex-1">
-            <form onSubmit={handleSearch}>
-              <div className="w-2/3">
-                <div className="relative w-full">
-                  <input
-                    type="search"
-                    name="search"
-                    className="block p-2.5 text-sm w-full text-gray-900 bg-gray-100 rounded-sm border-slate-400 border focus:none focus:none"
-                    placeholder="Search house, city, bedrooms, bathrooms, room size, availability"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="absolute top-0 end-0 h-full p-2.5 text-sm font-medium text-white bg-slate-400 rounded-e-sm border border-slate-400 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300"
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 20 20"
+        <div className="h-24 w-10/12 bg-white shadow-md absolute -bottom-10 left-[50%] -translate-x-[50%] skew-x-12 skew-y-1 rounded-bl-xl rounded-tr-xl">
+        </div>
+          <div className="flex justify-between items-center mt-2 absolute w-9/12 -bottom-6 left-[50%] -translate-x-[50%]">
+            <div className="flex-1">
+              <form onSubmit={handleSearch}>
+                <div className="w-2/3">
+                  <div className="relative w-full">
+                    <input
+                      type="search"
+                      name="search"
+                      className="block p-2.5 text-sm w-full text-gray-900 bg-gray-100 rounded-sm border-slate-400 border focus:none focus:none"
+                      placeholder="Search house, city, bedrooms, bathrooms, room size, availability"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className="absolute top-0 end-0 h-full p-2.5 text-sm font-medium text-white bg-slate-400 rounded-e-sm border border-slate-400 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300"
                     >
-                      <path
-                        stroke="currentColor"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="w-5 h-5"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          stroke="currentColor"
+                          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div className="h-16 flex-1">
+              <p className="-mb-2">price range</p>
+              <div className="w-full">
+                <input
+                  type="range"
+                  onChange={(e) => handleSetPrice(e.target.value)}
+                  min="0"
+                  max="2500"
+                  value={value}
+                  className="h-2 range"
+                  step="500"
+                />
+                <div className="w-full flex justify-between text-xs px-2">
+                  <span>00</span>
+                  <span>500</span>
+                  <span>1000</span>
+                  <span>1500</span>
+                  <span>2000</span>
+                  <span>2500</span>
                 </div>
               </div>
-            </form>
-          </div>
-          <div className="h-16 flex-1">
-            <p className="-mb-2">price range</p>
-            <div className="w-full">
-              <input
-                type="range"
-                onChange={(e) => handleSetPrice(e.target.value)}
-                min="0"
-                max="2500"
-                value={value}
-                className="h-2 range"
-                step="500"
-              />
-              <div className="w-full flex justify-between text-xs px-2">
-                <span>00</span>
-                <span>500</span>
-                <span>1000</span>
-                <span>1500</span>
-                <span>2000</span>
-                <span>2500</span>
-              </div>
+            </div>
+            <div className="flex-1 flex justify-end">
+              <h1 className="text-xl font-semibold bg-slate-400 max-w-fit px-5 py-2 rounded-sm text-white">
+                House Found : <span>{data.length}</span>
+              </h1>
             </div>
           </div>
-          <div className="flex-1 flex justify-end">
-            <h1 className="text-xl font-semibold bg-slate-400 max-w-fit px-5 py-2 rounded-sm text-white">
-              House Found : <span>{data.length}</span>
-            </h1>
-          </div>
-        </div>
+      </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          {data.map((house) => (
-            <HouseCard key={house._id} house={house} />
-          ))}
-        </div>
-        <div className="flex justify-center mb-10">
-          <Pagination
-            shape="rounded"
-            variant="outlined"
-            count={paginateBtn.length}
-            page={page + 1}
-            onChange={handleChange}
-          />
-        </div>
-        <HowItWork />
-        <Award />
-        <WhyChooseUs />
-        <PropertyBroker />
-        <ClientSays />
-        <Contact />
+      <PageTitle title="Featured House" />
+
+      <div className="grid grid-cols-2 gap-4">
+        {data.map((house) => (
+          <HouseCard key={house._id} house={house} />
+        ))}
+      </div>
+      <div className="flex justify-center mb-10">
+        <Pagination
+          shape="rounded"
+          variant="outlined"
+          count={paginateBtn.length}
+          page={page + 1}
+          onChange={handleChange}
+        />
+      </div>
+      <HowItWork />
+      <Award />
+      <WhyChooseUs />
+      <PropertyBroker />
+      <ClientSays />
+      <Contact />
     </div>
   );
 };
