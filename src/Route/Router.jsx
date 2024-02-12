@@ -13,6 +13,7 @@ import UpdateHouse from "../Utils/UpdateHouse/UpdateHouse";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import BookingPage from "../Pages/Home/BookingPage";
 import ErrorPage from "../Utils/ErrorPage/ErrorPage";
+import AllHouse from "../Pages/AllHouse/AllHouse";
 
 
 const Router = createBrowserRouter([
@@ -36,6 +37,10 @@ const Router = createBrowserRouter([
             {
                 path: "/bookingsPage/:id",
                 element: <PrivetRoute><BookingPage /> </PrivetRoute>
+            },
+            {
+                path: "/allHouse",
+                element: <AllHouse />
             },
         ]
     },

@@ -13,6 +13,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.6",
+    "@ramonak/react-progress-bar": "^5.2.0",
     "@smastrom/react-rating": "^1.5.0",
     "@tanstack/react-query": "^5.17.19",
     "aos": "^2.3.4",
@@ -33,8 +34,8 @@
     "react-type-animation": "^3.2.0",
     "smooth-scrollbar": "^8.8.4",
     "smooth-scrollbar-react": "^2.4.1",
-    "sort-by": "^1.2.0",
-    "sweetalert2": "^11.10.4",
+    "sort-by": "^0.0.2",
+    "sweetalert2": "^11.6.13",
     "swiper": "^11.0.5"
   },
   "devDependencies": {

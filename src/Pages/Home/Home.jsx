@@ -13,6 +13,7 @@ import PropertyBroker from "../../Components/HomeSection/PropertyBroker/Property
 import ClientSays from "../../Components/HomeSection/ClientSays/ClientSays";
 import Contact from "../../Components/HomeSection/Contact/Contact";
 import Award from "../../Components/HomeSection/Award/Award";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const axiosPublic = useAxiosPublic();
@@ -108,7 +109,7 @@ const Home = () => {
           <div className="flex justify-between items-center mt-2 absolute w-9/12 -bottom-6 left-[50%] -translate-x-[50%]">
             <div className="flex-1">
               <form onSubmit={handleSearch}>
-                <div className="w-2/3">
+                <div className="w-full">
                   <div className="relative w-full">
                     <input
                       type="search"
@@ -138,9 +139,9 @@ const Home = () => {
                 </div>
               </form>
             </div>
-            <div className="h-16 flex-1">
+            <div className="h-16 flex-1 flex flex-col justify-center items-center">
               <p className="-mb-2">price range</p>
-              <div className="w-full">
+              <div className="w-2/3">
                 <input
                   type="range"
                   onChange={(e) => handleSetPrice(e.target.value)}
@@ -183,6 +184,7 @@ const Home = () => {
           page={page + 1}
           onChange={handleChange}
         />
+        <Link to='/allHouse'>all house</Link>
       </div>
       <HowItWork />
       <Award />
