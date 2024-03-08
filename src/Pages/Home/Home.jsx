@@ -14,6 +14,9 @@ import ClientSays from "../../Components/HomeSection/ClientSays/ClientSays";
 import Contact from "../../Components/HomeSection/Contact/Contact";
 import Award from "../../Components/HomeSection/Award/Award";
 import { Link } from "react-router-dom";
+import About from "./About/About";
+import HouseLooks from "../../Components/HomeSection/HouseLooks/HouseLooks";
+import ResidentialApartment from "../../Components/HomeSection/Residential/ResidentialApartment";
 
 const Home = () => {
   const axiosPublic = useAxiosPublic();
@@ -97,7 +100,7 @@ const Home = () => {
                   2000,
                 ]}
                 speed={20}
-                style={{ display: "inline-block", color: "#00A9FF" }}
+                style={{ display: "inline-block", color: "#e33226" }}
                 repeat={Infinity}
               />
               place
@@ -114,13 +117,13 @@ const Home = () => {
                     <input
                       type="search"
                       name="search"
-                      className="block p-2.5 text-sm w-full text-gray-900 bg-gray-100 rounded-sm border-slate-400 border focus:none focus:none"
+                      className="block p-2.5 text-sm w-full text-black rounded-sm border-[#e33226] border focus:none focus:none"
                       placeholder="Search house, city, bedrooms, bathrooms, room size, availability"
                       required
                     />
                     <button
                       type="submit"
-                      className="absolute top-0 end-0 h-full p-2.5 text-sm font-medium text-white bg-slate-400 rounded-e-sm border border-slate-400 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                      className="absolute top-0 end-0 h-full p-2.5 text-sm font-medium text-white bg-[#e33226] rounded-e-sm border border-[#e33226] hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300"
                     >
                       <svg
                         className="w-5 h-5"
@@ -162,7 +165,7 @@ const Home = () => {
               </div>
             </div>
             <div className="flex-1 flex justify-end">
-              <h1 className="text-xl font-semibold bg-slate-400 max-w-fit px-5 py-2 rounded-sm text-white">
+              <h1 className="text-xl font-semibold bg-[#e33226] max-w-fit px-5 py-2 rounded-md text-white">
                 House Found : <span>{data.length}</span>
               </h1>
             </div>
@@ -176,7 +179,7 @@ const Home = () => {
           <HouseCard key={house._id} house={house} />
         ))}
       </div>
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-end mb-10 mt-5 mr-[120px]">
         <Pagination
           shape="rounded"
           variant="outlined"
@@ -187,8 +190,11 @@ const Home = () => {
         <Link to='/allHouse'>all house</Link>
       </div>
       <HowItWork />
+      <About/>
+      <HouseLooks/>
       <Award />
       <WhyChooseUs />
+      <ResidentialApartment/>
       <PropertyBroker />
       <ClientSays />
       <Contact />
