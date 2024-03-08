@@ -13,7 +13,6 @@ import PropertyBroker from "../../Components/HomeSection/PropertyBroker/Property
 import ClientSays from "../../Components/HomeSection/ClientSays/ClientSays";
 import Contact from "../../Components/HomeSection/Contact/Contact";
 import Award from "../../Components/HomeSection/Award/Award";
-import { Link } from "react-router-dom";
 import About from "./About/About";
 import HouseLooks from "../../Components/HomeSection/HouseLooks/HouseLooks";
 import ResidentialApartment from "../../Components/HomeSection/Residential/ResidentialApartment";
@@ -22,7 +21,7 @@ const Home = () => {
   const axiosPublic = useAxiosPublic();
   const [totalData, setTotalData] = useState(0);
   const [page, setPage] = useState(0);
-  const limit = 4;
+  const limit = 6;
   const [value, setValue] = useState(0);
   const [searchValue, setSearchValue] = useState("");
 
@@ -174,7 +173,7 @@ const Home = () => {
 
       <PageTitle title="Featured House" />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         {data.map((house) => (
           <HouseCard key={house._id} house={house} />
         ))}
@@ -187,7 +186,6 @@ const Home = () => {
           page={page + 1}
           onChange={handleChange}
         />
-        <Link to='/allHouse'>all house</Link>
       </div>
       <HowItWork />
       <About/>
