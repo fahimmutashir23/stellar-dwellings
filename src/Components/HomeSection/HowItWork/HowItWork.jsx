@@ -13,7 +13,7 @@ const HowItWork = () => {
       <PageTitle title="How It Work" />
       <div className="flex justify-evenly mt-10">
         <div className="flex flex-col justify-between">
-          <p className="text-xl font-medium italic border-l-4 px-2 border-l-violet-400">
+          <p className="text-xl font-medium italic border-l-4 px-2 border-l-[#e33226]">
             Found Property
           </p>
           <div className="w-52 mb-7">
@@ -24,7 +24,7 @@ const HowItWork = () => {
           <Lottie animationData={arrow} loop={true} autoplay={true} />
         </div>
         <div>
-          <p className="text-xl font-medium italic border-l-4 px-2 border-l-violet-400">
+          <p className="text-xl font-medium italic border-l-4 px-2 border-[#e33226]">
             Meeting with Client
           </p>
           <div className="w-52">
@@ -35,7 +35,7 @@ const HowItWork = () => {
           <Lottie animationData={arrow} loop={true} autoplay={true} />
         </div>
         <div>
-          <p className="text-xl font-medium italic border-l-4 px-2 border-l-violet-400">
+          <p className="text-xl font-medium italic border-l-4 px-2 border-l-[#e33226]">
             Handover Property
           </p>
           <div className="w-52">

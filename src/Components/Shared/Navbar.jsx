@@ -20,18 +20,18 @@ const Navbar = () => {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img src={logoImage} className="w-16" alt="stellar Dwellings Logo" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
             Stellar Dwellings
           </span>
         </Link>
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
           <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-            {user?.name ? <li className="text-violet-400">{user.name}</li> : ""}
+            {user?.name ? <li className="text-white">{user.name}</li> : ""}
             <li className="text-white">|</li>
             <li>
               <NavLink
                 to="/"
-                className="py-2 px-3 items-center text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                className="py-2 px-3 items-center text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 aria-current="page"
               >
                 Home
@@ -41,7 +41,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/"
-                className="py-2 px-3 items-center text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                className="py-2 px-3 items-center text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 aria-current="page"
               >
                 Career
@@ -51,7 +51,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/"
-                className="py-2 px-3 items-center text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                className="py-2 px-3 items-center text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 aria-current="page"
               >
                 Contact
@@ -61,7 +61,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/"
-                className="py-2 px-3 items-center text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                className="py-2 px-3 items-center text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 aria-current="page"
               >
                 About
@@ -75,7 +75,7 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
-                <div className="w-8 h-8 rounded-full bg-violet-400">
+                <div className="w-8 h-8 rounded-full bg-[#e33226]">
                   <FaUserCircle className="text-white w-8 h-8" />
                 </div>
               </div>
@@ -87,7 +87,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/dashboard"
-                  className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                  className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 >
                   Dashboard
                   <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
