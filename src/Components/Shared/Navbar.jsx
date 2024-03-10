@@ -13,7 +13,7 @@ const Navbar = () => {
     navigate("/");
   };
   return (
-    <nav className="bg-gray-700 border-gray-200">
+    <nav id="nav_bar" className="bg-gray-700 border-gray-200 sticky top-0 z-50 shadow-xl">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto py-4">
         <Link
           to="/"

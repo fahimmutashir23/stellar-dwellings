@@ -16,6 +16,7 @@ import Award from "../../Components/HomeSection/Award/Award";
 import About from "./About/About";
 import HouseLooks from "../../Components/HomeSection/HouseLooks/HouseLooks";
 import ResidentialApartment from "../../Components/HomeSection/Residential/ResidentialApartment";
+import UpBtn from "../../Utils/UpBtn/UpBtn";
 
 const Home = () => {
   const axiosPublic = useAxiosPublic();
@@ -68,7 +69,7 @@ const Home = () => {
     return <Loader />;
   }
   return (
-    <div>
+    <div className="relative">
       <div className="relative">
         <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative mb-24">
           <video
@@ -196,6 +197,7 @@ const Home = () => {
       <PropertyBroker />
       <ClientSays />
       <Contact />
+      <UpBtn />
     </div>
   );
 };
