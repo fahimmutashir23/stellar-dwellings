@@ -1,15 +1,32 @@
 import Lottie from "lottie-react";
-import PageTitle from "../../../Utils/PageTitle/PageTitle";
 import contactLottie from "../../../assets/Lottie/contactLottie.json";
 import pattern from "../../../assets/Background/subtle_dots.png";
 import { AwesomeButton } from "react-awesome-button";
 // import { BeakerIcon, TrashIcon } from "@primer/octicons-react";
 import "react-awesome-button/dist/styles.css";
+import { Link,} from "react-router-dom";
+
 
 const Contact = () => {
   return (
-    <div className="mt-14">
-      <PageTitle title="Contact Us" />
+    <div className="">
+      <div className="" style={{
+        backgroundImage: "url(https://i.ibb.co/sgWv0Bd/breadcrumb-1.jpg)",
+      }}>
+        <div className=" bg-[#000000B2]">
+          <div className=" max-w-screen-2xl mx-auto py-24">
+            <h2 className="md:text-6xl text-2xl font-bold text-white font-serif px-14">Contact With Us</h2>
+            <div className="mt-2 px-14">
+              <p className="text-white">
+                <Link to="/" className="hover:text-[#ec3323] cursor-pointer">
+                  Home{" "}
+                </Link>
+                / <span className="text-[#ec3323]">Contact Us</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         style={{ backgroundImage: `url(${pattern})` }}
         className="flex gap-4 items-center"
@@ -18,9 +35,9 @@ const Contact = () => {
           <Lottie animationData={contactLottie} loop={true} autoplay={true} />
         </div>
         <div className="flex-1">
-          <h1 className="text-center mb-10 text-4xl font-semibold text-violet-400">
+          <h1 className="text-center mb-10 text-4xl font-semibold text-[#e33226]">
             {"let's Talk"}
-            <p className="h-1.5 w-16 bg-gray-600 rounded-full mx-auto mt-2"></p>
+            <p className="h-1.5 w-16 bg-black rounded-full mx-auto mt-2"></p>
           </h1>
           <form className="max-w-sm mx-auto">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -83,13 +100,31 @@ const Contact = () => {
               ></textarea>
             </div>
             <div className="mt-5">
-              <AwesomeButton type="secondary" className="w-full">
+              <AwesomeButton type="secondary" className="w-full bg-[#e33226]">
                 Submit
               </AwesomeButton>
             </div>
           </form>
         </div>
       </div>
+      <div className="">
+            <div
+                className="items-center relative overflow-hidden px-10 pb-10 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl max-w-6xl mx-auto bg-white my-6 before:absolute before:right-0 before:w-[300px] before:bg-[#e33226] before:h-full max-md:before:hidden">
+                <div>
+                    <ul  style={{ cursor: 'pointer' }} className="mt-8 flex justify-center lg:space-x-6 max-lg:flex-col max-lg:items-center max-lg:space-y-2 ">
+                       
+                    </ul>
+                </div>
+
+                {/* Google Map  */}
+                <div className="relative h-full">
+                    <iframe src="https://maps.google.com/maps?q=Dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        className="left-0 top-0 h-[500px] w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
+                        allowfullscreen></iframe>
+                </div>
+
+            </div>
+        </div>
     </div>
   );
 };

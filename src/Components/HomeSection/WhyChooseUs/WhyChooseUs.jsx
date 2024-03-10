@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
             className="rounded-2xl border-4 border-[#e33226] p-3 bg-white flex flex-col justify-center items-center gap-3 group hover:shadow-xl transition-all duration-500 hover:bg-white hover:text-black hover:scale-110"
           >
             <div className="h-24 w-24 rounded-lg bg-gray-100 overflow-hidden p-3 group-hover:rounded-full transition-all duration-500">
-              <img src={item.icon} alt="" className="" />
+              <img src={item.icon} alt="" className=""/>
             </div>
             <h1 className="text-xl font-semibold">{item.title}</h1>
             <p className="text-gray-600 text-center group-hover:text-black">{item.description}</p>

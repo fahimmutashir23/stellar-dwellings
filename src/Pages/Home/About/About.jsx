@@ -1,11 +1,28 @@
-
+import WhyChooseUs from "../../../Components/HomeSection/WhyChooseUs/WhyChooseUs";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import "./About.css"
-import PageTitle from "../../../Utils/PageTitle/PageTitle";
+import { Link } from "react-router-dom";
 const About = () => {
     return (
         <div>
-            <PageTitle title="About Us"/>
+           <div className="" style={{
+        backgroundImage: "url(https://i.ibb.co/sgWv0Bd/breadcrumb-1.jpg)",
+      }}>
+        <div className=" bg-[#000000B2]">
+          <div className=" max-w-screen-2xl mx-auto py-24">
+            <h2 className="md:text-6xl text-2xl font-bold text-white font-serif px-14">About Us</h2>
+            <div className="mt-2 px-14">
+              <p className="text-white">
+                <Link to="/" className="hover:text-[#ec3323] cursor-pointer">
+                  Home{" "}
+                </Link>
+                / <span className="text-[#ec3323]">About us</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+            
             <div className="pt-[100px] pb-[100px] lg:pb-[150px] px-8 xl:px-0">
             <div className='max-w-[1296px] mx-auto flex flex-col lg:flex-row lg:justify-center xl:justify-between gap-[170px]'>
                 <div className='relative px-3 md:px-8 lg:px-0'>
@@ -38,6 +55,7 @@ const About = () => {
                 </div>
             </div>
         </div>
+    <WhyChooseUs/>
         </div>
     )
 }

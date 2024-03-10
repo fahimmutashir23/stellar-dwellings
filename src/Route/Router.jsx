@@ -14,6 +14,9 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import BookingPage from "../Pages/Home/BookingPage";
 import ErrorPage from "../Utils/ErrorPage/ErrorPage";
 import AllHouse from "../Pages/AllHouse/AllHouse";
+import About from "../Pages/Home/About/About";
+import Contact from "../Components/HomeSection/Contact/Contact";
+import HouseCardDetails from "../Pages/Home/About/HouseCardDetails";
 
 
 const Router = createBrowserRouter([
@@ -25,6 +28,14 @@ const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home /> 
+            },
+            {
+                path:"/about",
+                element:<About/>
+            },
+            {
+                path:"/contact",
+                element:<Contact/>
             },
             {
                 path: "/signUp",
@@ -42,6 +53,10 @@ const Router = createBrowserRouter([
                 path: "/allHouse",
                 element: <AllHouse />
             },
+            {
+                path:"/houseDetail/:id",
+                element:<HouseCardDetails/>
+            }
         ]
     },
     {

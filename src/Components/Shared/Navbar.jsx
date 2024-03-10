@@ -44,13 +44,13 @@ const Navbar = () => {
                 className="py-2 px-3 items-center text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 aria-current="page"
               >
-                Career
+                Blog
                 <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/contact"
                 className="py-2 px-3 items-center text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 aria-current="page"
               >
@@ -60,7 +60,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/about"
                 className="py-2 px-3 items-center text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
                 aria-current="page"
               >
