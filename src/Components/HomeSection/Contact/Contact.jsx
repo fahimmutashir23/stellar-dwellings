@@ -14,10 +14,10 @@ const Contact = () => {
         style={{ backgroundImage: `url(${pattern})` }}
         className="flex gap-4 items-center"
       >
-        <div className="flex-1">
+        <div data-aos="fade-right" data-aos-duration="2000" className="flex-1">
           <Lottie animationData={contactLottie} loop={true} autoplay={true} />
         </div>
-        <div className="flex-1">
+        <div data-aos="fade-left" data-aos-duration="2000" className="flex-1">
           <h1 className="text-center mb-10 text-4xl font-semibold text-violet-400">
             {"let's Talk"}
             <p className="h-1.5 w-16 bg-gray-600 rounded-full mx-auto mt-2"></p>
