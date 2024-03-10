@@ -67,8 +67,11 @@ const Home = () => {
     return <Loader />;
   }
   return (
-    <div>
-      <div className="relative">
+    <div className="relative">
+      <div
+      data-aos="zoom-in"
+      data-aos-duration="2000"
+      className="relative">
         <div className="rounded-b-md hero overflow-hidden h-[500px] text-white relative mb-24">
           <video
             src={bgVdo}

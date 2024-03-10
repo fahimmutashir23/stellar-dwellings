@@ -3,13 +3,13 @@ import PageTitle from "../../../Utils/PageTitle/PageTitle";
 const HouseLooks = () => {
   return (
     <div>
-      <div className="flex justify-center  md:mb-20 lg:mb-32 mb-2  ">
+      <div className="flex justify-center md:mb-20 lg:mb-32 mb-2  ">
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col  max-w-7xl justify-center items-center space-y-3 w-full ">
             <div className="flex flex-col  mb-5 md:mb-10  md:items-start items-center justify-center  space-y-3 px-8 text-center ">
               <PageTitle title="Our House Looks" />
             </div>
-            <div className="flex flex-col lg:flex-row space-x-2 space-y-3 md:space-x-6   w-[90vw] items-center justify-center ">
+            <div data-aos="zoom-in" data-aos-duration="2000" className="flex flex-col lg:flex-row space-x-2 space-y-3 md:space-x-6   w-[90vw] items-center justify-center ">
               <div className="lg:w-40  w-64 h-40 hover:shadow-gray-400 shadow-[0_0_50px_#00000028] duration-300 overflow-hidden hover:scale-105 rounded-xl ">
                 <img
                   src="https://source.unsplash.com/random/300x500/?bedrooms"

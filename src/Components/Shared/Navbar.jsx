@@ -13,7 +13,12 @@ const Navbar = () => {
     navigate("/");
   };
   return (
-    <nav className="bg-gray-700 border-gray-200">
+    <nav
+      data-aos="fade-down"
+      data-aos-duration="3000"
+      id="nav_bar"
+      className="bg-gray-700 border-gray-200 sticky top-0 z-50 shadow-xl"
+    >
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto py-4">
         <Link
           to="/"
@@ -84,49 +89,49 @@ const Navbar = () => {
                 className="dropdown-content mt-3 z-[1] p-2 shadow bg-gray-700 rounded-md w-40 space-y-2"
               >
                 {user?.name && (
-              <li>
-                <NavLink
-                  to="/dashboard"
-                  className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
-                >
-                  Dashboard
-                  <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
-                </NavLink>
-              </li>
-            )}
-            {!user?.name ? (
-              <li>
-                <NavLink
-                  to="/signIn"
-                  className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
-                >
-                  Sign In
-                  <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
-                </NavLink>
-              </li>
-            ) : (
-              ""
-            )}
-            <li>
-              <NavLink
-                to="/signUp"
-                className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
-              >
-                Sign Up
-                <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
-              </NavLink>
-            </li>
-            {user?.name && (
-              <li>
-                <NavLink
-                  onClick={handleLogOut}
-                  className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
-                >
-                  Log Out
-                  <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
-                </NavLink>
-              </li>
-            )}
+                  <li>
+                    <NavLink
+                      to="/dashboard"
+                      className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-[#e33226] md:p-0 transition-all duration-300 group"
+                    >
+                      Dashboard
+                      <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
+                    </NavLink>
+                  </li>
+                )}
+                {!user?.name ? (
+                  <li>
+                    <NavLink
+                      to="/signIn"
+                      className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                    >
+                      Sign In
+                      <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
+                    </NavLink>
+                  </li>
+                ) : (
+                  ""
+                )}
+                <li>
+                  <NavLink
+                    to="/signUp"
+                    className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                  >
+                    Sign Up
+                    <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
+                  </NavLink>
+                </li>
+                {user?.name && (
+                  <li>
+                    <NavLink
+                      onClick={handleLogOut}
+                      className="py-2 px-3 flex flex-col items-end text-white rounded md:hover:text-violet-400 md:p-0 transition-all duration-300 group"
+                    >
+                      Log Out
+                      <div className="h-[1.5px] w-0 group-hover:w-full transition-all duration-300 bg-white"></div>
+                    </NavLink>
+                  </li>
+                )}
               </ul>
             </div>
           </ul>

@@ -31,7 +31,7 @@ const Contact = () => {
         style={{ backgroundImage: `url(${pattern})` }}
         className="flex gap-4 items-center"
       >
-        <div className="flex-1">
+        <div data-aos="fade-right" data-aos-duration="2000" className="flex-1">
           <Lottie animationData={contactLottie} loop={true} autoplay={true} />
         </div>
         <div className="flex-1">
